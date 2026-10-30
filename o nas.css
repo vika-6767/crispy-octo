@@ -1,0 +1,137 @@
+/* Общие стили и "кошачья" цветовая палитра */
+:root {
+    --bg-color: #FAF6F0; /* Мягкий кремовый */
+    --card-bg: #FFFFFF; /* Белый для контраста */
+    --primary-color: #D9744B; /* Теплый рыжий/терракотовый */
+    --accent-color: #EFA885; /* Нежный персиковый */
+    --text-dark: #4A3E3D; /* Глубокий кофейный */
+    --text-muted: #7A6E6D; /* Мягкий серый с теплым подтоном */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+/* Контейнер вкладки */
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px; /* Округлые "мягкие" формы лапок */
+    box-shadow: 0 10px 30px rgba(74, 62, 61, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Декоративный элемент в виде ушка или лапки на фоне */
+.about-container::before {
+    content: "🐾";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 120px;
+    opacity: 0.03;
+    transform: rotate(25deg);
+}
+
+/* Заголовки */
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+
+h1::after {
+    content: "🐾";
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 5px;
+    color: var(--accent-color);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+/* Текст */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: var(--text-dark);
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+    color: var(--text-dark);
+}
+
+/* Список преимуществ в виде карточек */
+.features-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background-color: var(--bg-color);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(239, 168, 133, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* Выделение названия преимущества */
+.feature-title {
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+}
+
+/* Иконка лапки перед каждым пунктом */
+.feature-title::before {
+    content: "🐾 ";
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-right: 5px;
+}
+
+.feature-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+    .about-container {
+        padding: 25px;
+    }
+}

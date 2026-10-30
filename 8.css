@@ -1,0 +1,170 @@
+/* Общие сбросы стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавный скролл по якорным ссылкам меню */
+}
+
+body {
+    background-color: #0f172a; /* Темный фон для нижней части страницы */
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif; /* Основной шрифт страницы */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Картинка на задний план с плавным переходом в прозрачность к низу */
+.background-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    /* Заменяемый фоновый рисунок (природа/город) */
+    background-image: url('11.avif');
+    background-size: cover;
+    background-position: center;
+    /* Маска линейного градиента: картинка плавно растворяется сверху вниз */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* 2. Меню навигации */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px); /* Эффект размытия под меню */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-family: 'Playfair Display', serif; /* Элегантный шрифт для логотипа */
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+/* Псевдоселектор hover для ссылок меню */
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* 3. Центрирование контента и формы */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.form-container {
+    background: rgba(30, 41, 59, 0.75);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+.form-container h2 {
+    font-family: 'Playfair Display', serif; /* Особый шрифт для заголовка формы */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #38bdf8;
+}
+
+/* 4. Дополнительная картинка по центру над кнопкой */
+.form-decor-image {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 15px 0;
+}
+
+.form-decor-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #c69cfa;
+    box-shadow: 0 0 15px #9c5bec(56, 189, 248, 0.4);
+}
+
+/* 5. Кнопка регистрации и изменение цвета при наведении */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: #c69cfa; /* Начальный цвет: голубой */
+    border: none;
+    border-radius: 10px;
+    color: #0f172a;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.4s ease, color 0.4s ease, transform 0.2s ease;
+}
+
+/* Псевдоселектор hover для смены цвета кнопки */
+.btn-submit:hover {
+    background: #ff6db6; /* Новый цвет при наведении: розовый фуксия */
+    color: #ffffff;      /* Меняем текст на белый для контраста */
+    transform: translateY(-2px); /* Легкий эффект приподнимания */
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
